@@ -18,29 +18,22 @@ It allows you to:
 -   Regenerate certificate
 -   Reload Apache
 
-All certificates are stored in:
-
-/etc/ssl/mkcert/
+All certificates are stored in: /etc/ssl/mkcert/
 
 Structure:
-
-/etc/ssl/mkcert/ ├── certs/dev-shared.pem ├── private/dev-shared.key └──
-domains.txt
+/etc/ssl/mkcert/ 
+├── certs/dev-shared.pem 
+├── private/dev-shared.key 
+└── domains.txt
 
 ------------------------------------------------------------------------
 
 ## Requirements
 
 -   Ubuntu
-
 -   Apache (mod_ssl enabled)
-
--   mkcert installed
-
--   mkcert initialized:
-
-    mkcert -install
-
+-   mkcert installed: sudo apt install mkcert
+-   mkcert initialized: mkcert -install ( dont use sudo or root user )
 ------------------------------------------------------------------------
 
 ## Installation
@@ -51,10 +44,11 @@ domains.txt
 
 2.  Ensure directory structure exists:
 
-    sudo mkdir -p /etc/ssl/mkcert/certs sudo mkdir -p
-    /etc/ssl/mkcert/private sudo touch /etc/ssl/mkcert/domains.txt
+    sudo mkdir -p /etc/ssl/mkcert/certs
+    sudo mkdir -p /etc/ssl/mkcert/private
+    sudo touch /etc/ssl/mkcert/domains.txt
 
-3.  Ensure Apache SSL config uses:
+4.  Ensure Apache SSL config uses:
 
     SSLCertificateFile /etc/ssl/mkcert/certs/dev-shared.pem
     SSLCertificateKeyFile /etc/ssl/mkcert/private/dev-shared.key
